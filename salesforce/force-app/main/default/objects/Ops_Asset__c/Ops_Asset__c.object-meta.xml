@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Ops Asset</label>
+    <pluralLabel>Ops Assets</pluralLabel>
+    <description>Operational equipment at a location (network, POS, facilities).</description>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>ReadWrite</sharingModel>
+    <externalSharingModel>Private</externalSharingModel>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableFeeds>false</enableFeeds>
+    <enableBulkApi>true</enableBulkApi>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <nameField>
+        <label>Asset Tag</label>
+        <type>Text</type>
+    </nameField>
+</CustomObject>
