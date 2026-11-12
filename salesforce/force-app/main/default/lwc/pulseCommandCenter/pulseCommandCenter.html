@@ -1,0 +1,104 @@
+<template>
+    <div class="shell">
+        <header class="header">
+            <div>
+                <p class="eyebrow">Pulse AI</p>
+                <h1 class="title">Operations Command Center</h1>
+            </div>
+            <lightning-button-icon icon-name="utility:refresh" alternative-text="Refresh" onclick={handleRefresh}></lightning-button-icon>
+        </header>
+
+        <template lwc:if={loading}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+        <template lwc:if={error}>
+            <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">{error}</div>
+        </template>
+
+        <template lwc:if={overview}>
+            <section class="kpis">
+                <template for:each={kpis} for:item="k">
+                    <div key={k.key} class={k.tone}>
+                        <p class="eyebrow">{k.label}</p>
+                        <p class="kpi-value">{k.value}</p>
+                    </div>
+                </template>
+            </section>
+
+            <section class="grid">
+                <div class="panel">
+                    <h2 class="eyebrow">Top issue categories · 30d</h2>
+                    <template for:each={categories} for:item="c">
+                        <div key={c.label} class="bar-row">
+                            <div class="bar-label"><span>{c.label}</span><span class="mono">{c.share}% · {c.count}</span></div>
+                            <div class="bar"><div class="bar-fill" style={c.style}></div></div>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="panel">
+                    <h2 class="eyebrow">Assets at risk</h2>
+                    <template for:each={assets} for:item="a">
+                        <div key={a.id} class="asset-row" data-id={a.id} onclick={openRecord}>
+                            <div>
+                                <p class="mono strong">{a.name}</p>
+                                <p class="muted">{a.meta}</p>
+                            </div>
+                            <div class="risk">
+                                <div class="bar small"><div class="bar-fill" style={a.barStyle}></div></div>
+                                <span class="mono">{a.risk}%</span>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="panel">
+                    <h2 class="eyebrow">Most affected locations</h2>
+                    <template for:each={topLocations} for:item="l">
+                        <div key={l.label} class="loc-row">
+                            <span class="mono muted">{l.rank}</span>
+                            <span class="grow">{l.label}</span>
+                            <span class="mono strong">{l.count}</span>
+                        </div>
+                    </template>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="eyebrow">Open incidents</h2>
+                <template lwc:if={hasIncidents}>
+                    <table class="slds-table slds-table_cell-buffer slds-no-row-hover table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Incident</th>
+                                <th>Location</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Team</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={incidents} for:item="i">
+                                <tr key={i.id} data-id={i.id} onclick={openRecord} class="clickable">
+                                    <td class="mono muted">{i.number}</td>
+                                    <td>
+                                        {i.subject}
+                                        <template lwc:if={i.recurring}><span class="pill pill_warn tag">Recurring</span></template>
+                                    </td>
+                                    <td>{i.location}</td>
+                                    <td><span class={i.priorityClass}>{i.priority}</span></td>
+                                    <td>{i.status}</td>
+                                    <td>{i.team}</td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
+                <template lwc:else>
+                    <p class="muted">No open incidents. All locations are healthy.</p>
+                </template>
+            </section>
+        </template>
+    </div>
+</template>
