@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duplicate_Of__c</fullName>
+    <label>Duplicate Of</label>
+    <type>Lookup</type>
+    <referenceTo>Incident__c</referenceTo>
+    <relationshipName>Duplicates</relationshipName>
+    <relationshipLabel>Duplicates</relationshipLabel>
+    <required>false</required>
+    <deleteConstraint>SetNull</deleteConstraint>
+</CustomField>
