@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0B1220</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>AI operations command center for multi-location businesses.</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Pulse AI</label>
+    <navType>Standard</navType>
+    <tabs>Pulse_Command_Center</tabs>
+    <tabs>Location__c</tabs>
+    <tabs>Ops_Asset__c</tabs>
+    <tabs>Incident__c</tabs>
+    <tabs>Maintenance_Task__c</tabs>
+    <tabs>Incident_Pattern__c</tabs>
+    <tabs>AI_Recommendation__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>
