@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region__c</fullName>
+    <label>Region</label>
+    <type>Picklist</type>
+    <required>false</required>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>GTA West</fullName>
+                <default>false</default>
+                <label>GTA West</label>
+            </value>
+            <value>
+                <fullName>GTA East</fullName>
+                <default>false</default>
+                <label>GTA East</label>
+            </value>
+            <value>
+                <fullName>GTA North</fullName>
+                <default>false</default>
+                <label>GTA North</label>
+            </value>
+            <value>
+                <fullName>Central</fullName>
+                <default>false</default>
+                <label>Central</label>
+            </value>
+            <value>
+                <fullName>Southwest</fullName>
+                <default>false</default>
+                <label>Southwest</label>
+            </value>
+            <value>
+                <fullName>East</fullName>
+                <default>false</default>
+                <label>East</label>
+            </value>
+            <value>
+                <fullName>North</fullName>
+                <default>false</default>
+                <label>North</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
